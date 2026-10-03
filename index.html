@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brumi, az erdei tudós</title>
+<style>
+:root{--forest:#244f39;--leaf:#54845b;--paper:#f6f4e9;--ink:#26352a;--line:#dedfce}
+*{box-sizing:border-box}body{margin:0;padding:16px;background:#e9ecdf;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+.app{max-width:780px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 12px 36px #23351c18}
+.hero{background:linear-gradient(135deg,var(--forest),var(--leaf));color:white;text-align:center;padding:24px 18px}.bear{font-size:68px;line-height:1.15}.hero h1{margin:8px 0 5px;font-size:clamp(25px,5vw,34px)}.hero p{margin:0;opacity:.93}
+.topbar{display:flex;justify-content:flex-end;padding:12px 16px 0;gap:8px}.topbar select{border:1px solid #c8cdbd;border-radius:10px;padding:8px;background:white;color:var(--ink);font:inherit}
+main{padding:16px}.messages{height:340px;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:4px 2px 14px}.bubble{max-width:90%;padding:12px 15px;line-height:1.5;white-space:pre-wrap;border:1px solid #e5e5d8;border-radius:4px 16px 16px 16px;background:white}.bubble.me{align-self:flex-end;background:#dcebd6;border-color:#c9dec1;border-radius:16px 4px 16px 16px}
+.suggestions{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}.suggestions button,.actions button{border:1px solid #c7d6c2;background:#fff;color:var(--forest);border-radius:18px;padding:9px 12px;cursor:pointer;font:inherit}.suggestions button{background:#e7efe2}
+form{display:flex;gap:8px}input{min-width:0;flex:1;border:1px solid #c8cdbd;border-radius:14px;padding:13px;font-size:16px;background:white;color:var(--ink)}.send{border:0;border-radius:14px;background:#315f40;color:white;padding:0 18px;font-size:22px;cursor:pointer}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions button{flex:1;min-width:145px;border-radius:12px;padding:11px}.actions button:disabled,.send:disabled{opacity:.55;cursor:wait}.status{font-size:12px;color:#687666;margin-top:10px;text-align:center;min-height:18px}.note{font-size:12px;color:#6a7166;line-height:1.5;text-align:center;padding:0 18px 18px}
+@media(max-width:480px){body{padding:7px}.hero{padding:20px 12px}main{padding:12px}.messages{height:300px}}
+</style></head>
+<body><div class="app">
+<header class="hero"><div class="bear">🐻</div><h1 id="title">Brumi, az erdei tudós</h1><p id="subtitle">Kérdezz bátran! Fedezzük fel együtt az erdőt. 🌲</p></header>
+<div class="topbar"><label for="language" id="langlabel">Nyelv / Language</label><select id="language"><option value="hu">🇭🇺 Magyar</option><option value="en">🇬🇧 English</option></select></div>
+<main><div id="messages" class="messages" aria-live="polite"><div class="bubble" id="welcome">Szia, kis felfedező! Én Brumi vagyok. 🐾 Mit szeretnél megtudni a medvékről?</div></div>
+<div class="suggestions"><button data-q-hu="Mit esznek a medvék?" data-q-en="What do bears eat?">🍯 <span data-hu="Mit esznek?" data-en="What do they eat?">Mit esznek?</span></button><button data-q-hu="Tényleg téli álmot alszol?" data-q-en="Do you really hibernate in winter?">❄️ <span data-hu="Téli álom" data-en="Winter sleep">Téli álom</span></button><button data-q-hu="Hol élsz?" data-q-en="Where do you live?">🌳 <span data-hu="Hol élsz?" data-en="Where do you live?">Hol élsz?</span></button></div>
+<form id="form"><input id="question" placeholder="Írd ide a kérdésed..." aria-label="Kérdés Bruminak" autocomplete="off"><button class="send" id="send" aria-label="Küldés">➤</button></form>
+<div class="actions"><button id="mic">🎤 Beszélj Brumihoz</button><button id="stop">🔇 Hang leállítása</button></div><div id="status" class="status">Valódi AI-beszélgetés · A hangfunkciók böngészőfüggők</div></main>
+<div class="note" id="note">Brumi AI-val válaszol. Ne írj be személyes adatokat. A hangfunkciók a böngésző képességeitől és engedélyeitől függenek.</div>
+</div>
+<script src="/app.js" defer></script></body></html>
